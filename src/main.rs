@@ -92,7 +92,7 @@ impl Cipher for VigenereCipher {
 struct OTPCipher;
 impl Cipher for OTPCipher {
     fn encrypt(&self, key: &str, data: &str) -> String {
-        if (key.len() < data.len()) {
+        if key.len() < data.len() {
             panic!("One Time Pad Cipher Requires a key larger than or equal to the data to be encrypted")
         }
         // Vectors to store the keys and encrypted stuff
@@ -112,7 +112,7 @@ impl Cipher for OTPCipher {
         encrypted_array.iter().collect::<String>()
     }
     fn decrypt(&self, key: &str, data: &str) -> String{
-        if (key.len() < data.len()) {
+        if key.len() < data.len() {
             panic!("One Time Pad Cipher Requires a key larger than or equal to the data to be decrypted")
         }
         // Vectors to store the keys and encrypted stuff
